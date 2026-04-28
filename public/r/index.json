@@ -1,0 +1,33 @@
+[
+  {
+    "name": "waitlist-form",
+    "type": "registry:component",
+    "dependencies": [
+      "lucide-react",
+      "framer-motion"
+    ],
+    "registryDependencies": [
+      "button",
+      "input",
+      "label"
+    ],
+    "files": [
+      "waitlist-form.tsx"
+    ]
+  },
+  {
+    "name": "waitlist-dialog",
+    "type": "registry:component",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "waitlist-form"
+    ],
+    "files": [
+      "waitlist-dialog.tsx"
+    ]
+  }
+]
