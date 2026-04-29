@@ -204,7 +204,7 @@ export default function Home() {
             <span className="font-bold tracking-tight">shadcn/waitlist</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Built by Antigravity. Open sourced on GitHub.
+            &copy; {new Date().getFullYear()}Open sourced on GitHub.
           </p>
           <div className="flex items-center space-x-6 text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors"><GitBranch className="w-5 h-5" /></a>
