@@ -4,7 +4,7 @@ import React from "react";
 import { WaitlistForm } from "@/registry/components/waitlist-form";
 import { WaitlistDialog } from "@/registry/components/waitlist-dialog";
 import { motion } from "framer-motion";
-import { Terminal, Copy, Check, GitBranch, Sparkles, Zap, Shield, ArrowRight } from "lucide-react";
+import { Terminal, Copy, Check, GitBranch, Sparkles, Zap, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
@@ -128,7 +128,7 @@ export default function Home() {
                 <div className="mb-8">
                   <h3 className="text-2xl font-bold mb-2">Dialog Component</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    An elegant popup trigger for waitlist capture. Ideal for "Join Waitlist" buttons in navbars or footers.
+                    An elegant popup trigger for waitlist capture. Ideal for &quot;Join Waitlist&quot; buttons in navbars or footers.
                   </p>
                 </div>
                 

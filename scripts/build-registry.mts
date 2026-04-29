@@ -38,7 +38,15 @@ const components = [
   },
 ];
 
-const registryIndex: any[] = [];
+type RegistryIndexItem = {
+  name: string;
+  type: string;
+  dependencies?: string[];
+  registryDependencies?: string[];
+  files: string[];
+};
+
+const registryIndex: RegistryIndexItem[] = [];
 
 for (const comp of components) {
   const item: RegistryItem = {

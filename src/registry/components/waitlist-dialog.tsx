@@ -11,7 +11,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { WaitlistForm } from "./waitlist-form";
-import { motion, AnimatePresence } from "framer-motion";
+// import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
 export interface WaitlistDialogProps {
@@ -37,14 +37,16 @@ export function WaitlistDialog({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button 
-          variant={buttonVariant} 
-          className="rounded-xl px-6 h-11 font-medium transition-all duration-300 active:scale-95"
-        >
-          {showIcon && <Sparkles className="mr-2 h-4 w-4" />}
-          {buttonText}
-        </Button>
+      <DialogTrigger 
+        render={
+          <Button 
+            variant={buttonVariant} 
+            className="rounded-xl px-6 h-11 font-medium transition-all duration-300 active:scale-95"
+          />
+        }
+      >
+        {showIcon && <Sparkles className="mr-2 h-4 w-4" />}
+        {buttonText}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[440px] rounded-3xl p-0 overflow-hidden border-none shadow-2xl">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
