@@ -2,6 +2,7 @@
 
 import React from "react";
 import { WaitlistForm } from "@/registry/components/waitlist-form";
+import { SocialProofTicker } from "@/components/social-proof-ticker";
 import { motion } from "framer-motion";
 import { Terminal, Copy, Check, GitBranch, Sparkles, Zap, Shield, ArrowRight, MousePointer2, Layers, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -48,7 +49,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-6xl md:text-8xl font-heading font-bold tracking-tighter mb-8 leading-[0.9]"
+                className="text-5xl md:text-7xl font-heading font-bold tracking-tighter mb-8 leading-[0.9]"
               >
                 Waitlists <br />
                 <span className="text-muted-foreground/50">made beautiful.</span>
@@ -103,6 +104,13 @@ export default function Home() {
                   </button>
                 </div>
               </motion.div>
+            </div>
+
+            <div className="flex-1 w-full lg:w-auto flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-50" />
+                <SocialProofTicker className="relative z-10 w-full max-w-[320px]" />
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,15 @@
+{
+  "name": "avatar-stack",
+  "type": "registry:component",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "avatar-stack.tsx",
+      "content": "\"use client\";\n\nimport React from \"react\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface AvatarStackProps extends React.HTMLAttributes<HTMLDivElement> {\n  avatars?: string[];\n  extraCount?: string | number;\n}\n\n/**\n * A simple, elegant avatar stack component.\n * Features overlapping avatars with a border and optional extra count indicator.\n */\nexport function AvatarStack({\n  avatars = [\n    \"https://api.dicebear.com/7.x/avataaars/svg?seed=43\",\n    \"https://api.dicebear.com/7.x/avataaars/svg?seed=44\",\n    \"https://api.dicebear.com/7.x/avataaars/svg?seed=45\",\n    \"https://api.dicebear.com/7.x/avataaars/svg?seed=46\",\n  ],\n  extraCount = \"+1k\",\n  className,\n  ...props\n}: AvatarStackProps) {\n  return (\n    <div className={cn(\"flex -space-x-2\", className)} {...props}>\n      {avatars.map((src, i) => (\n        <div\n          key={i}\n          className=\"h-7 w-7 rounded-full border-2 border-white bg-muted overflow-hidden ring-1 ring-black/5 transition-transform hover:scale-110 hover:z-10 cursor-pointer\"\n        >\n          <img\n            src={src}\n            alt=\"User avatar\"\n            className=\"h-full w-full object-cover\"\n          />\n        </div>\n      ))}\n      {extraCount && (\n        <div className=\"flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-black text-[10px] font-bold text-white ring-1 ring-black/5 transition-transform hover:scale-110 hover:z-10 cursor-pointer\">\n          {extraCount}\n        </div>\n      )}\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/avatar-stack.tsx"
+    }
+  ]
+}

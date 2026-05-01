@@ -3,6 +3,10 @@
 import React from "react";
 import { WaitlistForm } from "@/registry/components/waitlist-form";
 import { WaitlistDialog } from "@/registry/components/waitlist-dialog";
+
+import { AvatarStack } from "@/registry/components/avatar-stack";
+import { StackedTestimonials } from "@/registry/components/stacked-testimonials";
+import { FAQSection } from "@/registry/components/faq-section";
 import { motion } from "framer-motion";
 import { Terminal, Copy, Check, Search, Filter, LayoutGrid, List } from "lucide-react";
 import { useState } from "react";
@@ -10,6 +14,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 const components = [
+  {
+    id: "avatar-stack",
+    name: "Avatar Stack",
+    description: "A simple, elegant avatar stack component with social proof and optional count.",
+    component: <AvatarStack />,
+    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/avatar-stack.json"
+  },
   {
     id: "waitlist-form",
     name: "Waitlist Form",
@@ -23,19 +34,35 @@ const components = [
     description: "A professional popup dialog for waitlist signup. Perfect for CTAs.",
     component: (
       <WaitlistDialog 
-        buttonText="Try the Dialog"
+        buttonText="Get Early Access"
         title="Exclusive Early Access"
         description="Join our waitlist to receive updates and early access to new features."
         onSubmitEmail={async () => { await new Promise(r => setTimeout(r, 1000)) }}
       />
     ),
     install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-dialog.json"
-  }
+  },
+  {
+    id: "stacked-testimonials",
+    name: "Stacked Testimonials",
+    description: "A beautiful stacked card testimonial component with Framer Motion transitions.",
+    component: <StackedTestimonials />,
+    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/stacked-testimonials.json"
+  },
+  {
+    id: "faq-section",
+    name: "FAQ Section",
+    description: "An animated, accordion-style FAQ component with Framer Motion.",
+    component: <FAQSection />,
+    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/faq-section.json"
+  },
+
 ];
 
 export default function ComponentsPage() {
   const [search, setSearch] = useState("");
   const [copied, setCopied] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -75,10 +102,20 @@ export default function ComponentsPage() {
             />
           </div>
           <div className="flex items-center space-x-2">
-            <Button variant="outline" size="icon" className="rounded-lg h-10 w-10">
+            <Button 
+              variant={viewMode === "grid" ? "outline" : "ghost"} 
+              size="icon" 
+              className="rounded-lg h-10 w-10"
+              onClick={() => setViewMode("grid")}
+            >
               <LayoutGrid className="w-4 h-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="rounded-lg h-10 w-10">
+            <Button 
+              variant={viewMode === "list" ? "outline" : "ghost"} 
+              size="icon" 
+              className="rounded-lg h-10 w-10"
+              onClick={() => setViewMode("list")}
+            >
               <List className="w-4 h-4" />
             </Button>
           </div>
@@ -87,13 +124,10 @@ export default function ComponentsPage() {
 
       {/* Grid */}
       <div className="container px-4 mx-auto mt-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className={viewMode === "grid" ? "grid grid-cols-1 lg:grid-cols-2 gap-12" : "flex flex-col gap-12"}>
           {filteredComponents.map((comp) => (
-            <motion.div 
+            <div 
               key={comp.id}
-              layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
               className="group"
             >
               <div className="relative bg-card border rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
@@ -106,7 +140,7 @@ export default function ComponentsPage() {
                   </div>
 
                   {/* Preview Area */}
-                  <div className="bg-muted/40 rounded-2xl p-12 border border-dashed flex items-center justify-center min-h-[300px] mb-8">
+                  <div className="bg-white rounded-2xl p-12 border border-dashed flex items-center justify-center min-h-[300px] mb-8">
                     {comp.component}
                   </div>
 
@@ -128,7 +162,7 @@ export default function ComponentsPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
