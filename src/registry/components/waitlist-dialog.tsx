@@ -40,28 +40,28 @@ export function WaitlistDialog({
       <DialogTrigger asChild>
         <Button 
           variant={buttonVariant} 
-          className="rounded-xl px-6 h-11 font-medium transition-all duration-300 active:scale-95"
+          className="rounded-xl px-6 h-11 font-medium transition-all duration-300 active:scale-95 bg-black"
         >
           {showIcon && <Sparkles className="mr-2 h-4 w-4" />}
           {buttonText}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[440px] rounded-3xl p-0 overflow-hidden border-none shadow-2xl">
+      <DialogContent className="sm:max-w-[440px] rounded-3xl p-0 overflow-hidden border-none shadow-2xl bg-white text-slate-950">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
         <div className="relative p-8 pt-10">
           <DialogHeader className="space-y-3 mb-6">
             <div className="mx-auto w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-2">
               <Sparkles className="w-6 h-6 text-primary" />
             </div>
-            <DialogTitle className="text-2xl font-bold text-center tracking-tight">
+            <DialogTitle className="text-2xl font-bold text-center tracking-tight text-slate-900">
               {title}
             </DialogTitle>
-            <DialogDescription className="text-center text-balance">
+            <DialogDescription className="text-center text-balance text-slate-600">
               {description}
             </DialogDescription>
           </DialogHeader>
           <WaitlistForm 
-            className="w-full" 
+            className="w-full border-none shadow-none p-0" 
             onSubmitEmail={async (email) => {
               if (onSubmitEmail) await onSubmitEmail(email);
               // We don't automatically close so they see the success state
