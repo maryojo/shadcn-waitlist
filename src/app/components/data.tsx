@@ -15,6 +15,23 @@ export type ComponentEntry = {
   install: string;
 };
 
+export type PropDef = {
+  name: string;
+  type: string;
+  default?: string;
+  description: string;
+  required?: boolean;
+};
+
+export type DocEntry = {
+  id: string;
+  name: string;
+  description: string;
+  install: string;
+  usage: string;
+  props: PropDef[];
+};
+
 export const components: ComponentEntry[] = [
   {
     id: "avatar-stack",
@@ -71,4 +88,111 @@ export const components: ComponentEntry[] = [
   //   component: <WaitlistProgress className="relative w-full" currentSignups={842} targetSignups={1000} />,
   //   install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-progress.json"
   // },
+];
+
+export const docEntries: DocEntry[] = [
+  {
+    id: "avatar-stack",
+    name: "Avatar Stack",
+    description: "Displays a compact stack of overlapping user avatars with an optional overflow count, perfect for showing social proof.",
+    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/avatar-stack.json",
+    usage: `import { AvatarStack } from "@/components/avatar-stack";
+
+<AvatarStack
+  avatars={[
+    { src: "/avatars/1.png", alt: "Alice" },
+    { src: "/avatars/2.png", alt: "Bob" },
+  ]}
+  count={120}
+/>`,
+    props: [
+      { name: "avatars", type: "{ src: string; alt: string }[]", description: "Array of avatar image objects to display.", required: true },
+      { name: "count", type: "number", description: "Total signup count shown next to the stack.", default: "undefined" },
+      { name: "className", type: "string", description: "Additional CSS classes.", default: "undefined" },
+    ],
+  },
+  {
+    id: "waitlist-form",
+    name: "Waitlist Form",
+    description: "An animated email capture form with built-in loading, success, and validation states. Drop it anywhere on your page.",
+    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-form.json",
+    usage: `import { WaitlistForm } from "@/components/waitlist-form";
+
+<WaitlistForm
+  onSubmitEmail={async (email) => {
+    await subscribeToWaitlist(email);
+  }}
+/>`,
+    props: [
+      { name: "onSubmitEmail", type: "(email: string) => Promise<void>", description: "Async handler called with the submitted email. Throw to trigger an error state.", required: true },
+      { name: "placeholder", type: "string", description: "Input placeholder text.", default: "'Enter your email'" },
+      { name: "buttonText", type: "string", description: "Submit button label.", default: "'Join Waitlist'" },
+      { name: "className", type: "string", description: "Additional CSS classes.", default: "undefined" },
+    ],
+  },
+  {
+    id: "waitlist-dialog",
+    name: "Waitlist Dialog",
+    description: "A polished modal dialog that triggers from a button. Wraps WaitlistForm inside a shadcn Dialog for use as a CTA.",
+    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-dialog.json",
+    usage: `import { WaitlistDialog } from "@/components/waitlist-dialog";
+
+<WaitlistDialog
+  buttonText="Get Early Access"
+  title="Join the Waitlist"
+  description="Be first in line when we launch."
+  onSubmitEmail={async (email) => {
+    await subscribeToWaitlist(email);
+  }}
+/>`,
+    props: [
+      { name: "onSubmitEmail", type: "(email: string) => Promise<void>", description: "Async handler called with the submitted email.", required: true },
+      { name: "buttonText", type: "string", description: "Label for the trigger button.", default: "'Join Waitlist'" },
+      { name: "title", type: "string", description: "Dialog heading text.", default: "'Join the Waitlist'" },
+      { name: "description", type: "string", description: "Subtext shown below the dialog title.", default: "undefined" },
+    ],
+  },
+  {
+    id: "stacked-testimonials",
+    name: "Stacked Testimonials",
+    description: "A drag-and-drop stack of testimonial cards with Framer Motion spring physics and auto-advance cycling.",
+    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/stacked-testimonials.json",
+    usage: `import { StackedTestimonials } from "@/components/stacked-testimonials";
+
+<StackedTestimonials
+  testimonials={[
+    {
+      name: "Alice",
+      role: "Founder @ Acme",
+      content: "This saved us weeks of work!",
+      avatar: "/avatars/alice.png",
+    },
+  ]}
+/>`,
+    props: [
+      { name: "testimonials", type: "{ name: string; role: string; content: string; avatar?: string }[]", description: "Array of testimonial objects to display.", default: "Built-in demo data" },
+      { name: "autoAdvanceMs", type: "number", description: "Milliseconds between auto-advance cycles.", default: "4000" },
+      { name: "className", type: "string", description: "Additional CSS classes.", default: "undefined" },
+    ],
+  },
+  {
+    id: "faq-section",
+    name: "FAQ Section",
+    description: "An animated accordion FAQ list powered by Framer Motion. Each item expands smoothly with a spring transition.",
+    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/faq-section.json",
+    usage: `import { FAQSection } from "@/components/faq-section";
+
+<FAQSection
+  items={[
+    {
+      question: "Is it free?",
+      answer: "Yes, all components are free and open source.",
+    },
+  ]}
+/>`,
+    props: [
+      { name: "items", type: "{ question: string; answer: string }[]", description: "List of FAQ items.", default: "Built-in demo data" },
+      { name: "className", type: "string", description: "Additional CSS classes.", default: "undefined" },
+    ],
+  },
 ];
