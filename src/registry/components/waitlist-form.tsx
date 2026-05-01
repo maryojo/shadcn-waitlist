@@ -79,53 +79,56 @@ export function WaitlistForm({
             </Button>
           </motion.div>
         ) : (
-          <motion.form
+          <motion.div
             key="form"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="flex flex-col space-y-4"
-            onSubmit={handleSubmit}
-            {...props}
           >
-            <div className="relative group">
-              <Label htmlFor="email" className="sr-only">
-                Email
-              </Label>
-              <div className="relative">
-                <Input
-                  id="email"
-                  placeholder="Enter your email"
-                  type="email"
-                  autoCapitalize="none"
-                  autoComplete="email"
-                  autoCorrect="off"
-                  disabled={isLoading}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="h-12 px-4 rounded-xl border-muted-foreground/20 focus-visible:ring-primary/30 focus-visible:border-primary transition-all duration-300"
-                />
-                <div className="absolute inset-0 rounded-xl bg-primary/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
-              </div>
-            </div>
-            <Button 
-              disabled={isLoading} 
-              className="h-12 rounded-xl font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 active:scale-[0.98]"
+            <form
+              className="flex flex-col space-y-4"
+              onSubmit={handleSubmit}
+              {...props}
             >
-              {isLoading ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                <>
-                  {buttonText}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </>
-              )}
-            </Button>
-            <p className="text-[10px] text-center text-muted-foreground">
-              By joining, you agree to our <a href="#" className="underline underline-offset-2 hover:text-primary">Terms of Service</a>.
-            </p>
-          </motion.form>
+              <div className="relative group">
+                <Label htmlFor="email" className="sr-only">
+                  Email
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="email"
+                    placeholder="Enter your email"
+                    type="email"
+                    autoCapitalize="none"
+                    autoComplete="email"
+                    autoCorrect="off"
+                    disabled={isLoading}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="h-12 px-4 rounded-xl border-muted-foreground/20 focus-visible:ring-primary/30 focus-visible:border-primary transition-all duration-300"
+                  />
+                  <div className="absolute inset-0 rounded-xl bg-primary/5 opacity-0 group-focus-within:opacity-100 pointer-events-none transition-opacity duration-300" />
+                </div>
+              </div>
+              <Button 
+                disabled={isLoading} 
+                className="h-12 rounded-xl font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 active:scale-[0.98]"
+              >
+                {isLoading ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <>
+                    {buttonText}
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </>
+                )}
+              </Button>
+              <p className="text-[10px] text-center text-muted-foreground">
+                By joining, you agree to our <a href="#" className="underline underline-offset-2 hover:text-primary">Terms of Service</a>.
+              </p>
+            </form>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
