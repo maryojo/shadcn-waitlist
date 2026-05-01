@@ -1,68 +1,21 @@
 "use client";
 
 import React from "react";
-import { WaitlistForm } from "@/registry/components/waitlist-form";
-import { WaitlistDialog } from "@/registry/components/waitlist-dialog";
-
-import { AvatarStack } from "@/registry/components/avatar-stack";
-import { StackedTestimonials } from "@/registry/components/stacked-testimonials";
-import { FAQSection } from "@/registry/components/faq-section";
 import { motion } from "framer-motion";
 import { Terminal, Copy, Check, Search, Filter, LayoutGrid, List } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { components } from "./data";
 
-const components = [
-  {
-    id: "avatar-stack",
-    name: "Avatar Stack",
-    description: "A simple, elegant avatar stack component with social proof and optional count.",
-    component: <AvatarStack />,
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/avatar-stack.json"
-  },
-  {
-    id: "waitlist-form",
-    name: "Waitlist Form",
-    description: "A sleek, animated email capture form with built-in validation and success states.",
-    component: <WaitlistForm className="max-w-sm" onSubmitEmail={async () => { await new Promise(r => setTimeout(r, 1000)) }} />,
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-form.json"
-  },
-  {
-    id: "waitlist-dialog",
-    name: "Waitlist Dialog",
-    description: "A professional popup dialog for waitlist signup. Perfect for CTAs.",
-    component: (
-      <WaitlistDialog 
-        buttonText="Get Early Access"
-        title="Exclusive Early Access"
-        description="Join our waitlist to receive updates and early access to new features."
-        onSubmitEmail={async () => { await new Promise(r => setTimeout(r, 1000)) }}
-      />
-    ),
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-dialog.json"
-  },
-  {
-    id: "stacked-testimonials",
-    name: "Stacked Testimonials",
-    description: "A beautiful stacked card testimonial component with Framer Motion transitions.",
-    component: <StackedTestimonials />,
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/stacked-testimonials.json"
-  },
-  {
-    id: "faq-section",
-    name: "FAQ Section",
-    description: "An animated, accordion-style FAQ component with Framer Motion.",
-    component: <FAQSection />,
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/faq-section.json"
-  },
-
-];
 
 export default function ComponentsPage() {
   const [search, setSearch] = useState("");
   const [copied, setCopied] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categories = ["All", ...Array.from(new Set(components.map(c => c.category)))];
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -71,8 +24,9 @@ export default function ComponentsPage() {
   };
 
   const filteredComponents = components.filter(c => 
-    c.name.toLowerCase().includes(search.toLowerCase()) || 
-    c.description.toLowerCase().includes(search.toLowerCase())
+    (selectedCategory === "All" || c.category === selectedCategory) &&
+    (c.name.toLowerCase().includes(search.toLowerCase()) || 
+    c.description.toLowerCase().includes(search.toLowerCase()))
   );
 
   return (
@@ -100,6 +54,19 @@ export default function ComponentsPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
+          </div>
+          <div className="flex-1 flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
+            {categories.map((cat) => (
+              <Button
+                key={cat}
+                variant={selectedCategory === cat ? "default" : "outline"}
+                size="sm"
+                className="rounded-full whitespace-nowrap"
+                onClick={() => setSelectedCategory(cat)}
+              >
+                {cat}
+              </Button>
+            ))}
           </div>
           <div className="flex items-center space-x-2">
             <Button 
