@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { WaitlistForm } from "@/registry/components/waitlist-form";
+import { SocialProofTicker } from "@/components/social-proof-ticker";
 import { motion } from "framer-motion";
-import { Terminal, Copy, Check, GitBranch, Sparkles, Zap, Shield, ArrowRight, MousePointer2, Layers, Cpu } from "lucide-react";
+import { Terminal, Copy, Check, GitBranch, Zap, Shield, ArrowRight, MousePointer2, Layers, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Link from "next/link";
@@ -48,7 +50,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="text-6xl md:text-8xl font-heading font-bold tracking-tighter mb-8 leading-[0.9]"
+                className="text-5xl md:text-7xl font-heading font-bold tracking-tighter mb-8 leading-[0.9]"
               >
                 Waitlists <br />
                 <span className="text-muted-foreground/50">made beautiful.</span>
@@ -103,6 +105,13 @@ export default function Home() {
                   </button>
                 </div>
               </motion.div>
+            </div>
+
+            <div className="flex-1 w-full lg:w-auto flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-50" />
+                <SocialProofTicker className="relative z-10 w-full max-w-[320px]" />
+              </div>
             </div>
           </div>
         </div>
@@ -196,7 +205,7 @@ export default function Home() {
             
             <div className="relative z-10 max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-6xl font-heading font-bold mb-8 tracking-tighter">Ready to start capturing leads?</h2>
-              <p className="text-xl md:text-2xl mb-12 text-primary-foreground/80 leading-relaxed">
+              <p className="text-xl md:text-2xl mb-12 text-black/80 leading-relaxed">
                 Join thousands of developers using shadcn/waitlist to grow their products.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -206,7 +215,7 @@ export default function Home() {
                   </Button>
                 </Link>
                 <Link href="/docs">
-                  <Button size="lg" variant="outline" className="h-16 px-12 rounded-2xl text-xl font-bold border-white/20 bg-white/10 hover:bg-white/20 text-white">
+                  <Button size="lg" variant="outline" className="h-16 px-12 rounded-2xl text-xl font-bold border-black/20 bg-black/5 hover:bg-black/10 text-black">
                     Read Docs
                   </Button>
                 </Link>
@@ -222,8 +231,14 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
             <div className="max-w-xs">
               <div className="flex items-center space-x-2 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-primary-foreground" />
+                <div className="relative w-10 h-10 flex items-center justify-center">
+                  <Image 
+                    src="/waitlist-logo.svg" 
+                    alt="Waitlist Logo" 
+                    width={40} 
+                    height={40} 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <span className="font-heading font-bold text-xl md:text-2xl tracking-tighter">shadcn/waitlist</span>
               </div>
@@ -259,7 +274,7 @@ export default function Home() {
           </div>
           <div className="pt-12 border-t border-muted-foreground/10 flex flex-col sm:row justify-between items-center gap-6">
             <p className="text-sm text-muted-foreground font-medium">
-              &copy; {new Date().getFullYear()} Built by Antigravity.
+              &copy; {new Date().getFullYear()} Built by Mary.
             </p>
             <div className="flex items-center space-x-8">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><GitBranch className="w-5 h-5" /></a>

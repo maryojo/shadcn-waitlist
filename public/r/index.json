@@ -1,5 +1,15 @@
 [
   {
+    "name": "avatar-stack",
+    "type": "registry:component",
+    "dependencies": [
+      "framer-motion"
+    ],
+    "files": [
+      "avatar-stack.tsx"
+    ]
+  },
+  {
     "name": "waitlist-form",
     "type": "registry:component",
     "dependencies": [
@@ -9,7 +19,8 @@
     "registryDependencies": [
       "button",
       "input",
-      "label"
+      "label",
+      "avatar-stack"
     ],
     "files": [
       "waitlist-form.tsx"
@@ -28,6 +39,30 @@
     ],
     "files": [
       "waitlist-dialog.tsx"
+    ]
+  },
+  {
+    "name": "stacked-testimonials",
+    "type": "registry:component",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "stacked-testimonials.tsx"
+    ]
+  },
+  {
+    "name": "faq-section",
+    "type": "registry:component",
+    "dependencies": [
+      "framer-motion",
+      "lucide-react"
+    ],
+    "registryDependencies": [],
+    "files": [
+      "faq-section.tsx"
     ]
   }
 ]

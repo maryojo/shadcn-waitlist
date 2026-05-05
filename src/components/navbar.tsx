@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Sparkles, GitBranch, Menu, X } from "lucide-react";
+import Image from "next/image";
+import { GitBranch, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -12,9 +13,15 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <Sparkles className="w-4 h-4 text-primary-foreground" />
+        <Link href="/" className="flex items-center space-x-2 group">
+          <div className="relative w-8 h-8 flex items-center justify-center">
+            <Image 
+              src="/waitlist-logo.svg" 
+              alt="Waitlist Logo" 
+              width={32} 
+              height={32} 
+              className="w-full h-full object-contain"
+            />
           </div>
           <span className="font-heading font-bold text-xl tracking-tighter">shadcn/waitlist</span>
         </Link>
@@ -30,7 +37,7 @@ export function Navbar() {
           <a href="https://github.com" target="_blank" rel="noreferrer" className="text-sm font-medium hover:text-primary transition-colors">
             <GitBranch className="w-4 h-4" />
           </a>
-          <Button size="sm" className="rounded-full px-5">
+          <Button size="sm" className="rounded-full px-5" >
             Get Started
           </Button>
         </div>

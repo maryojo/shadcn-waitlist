@@ -23,10 +23,16 @@ type RegistryItem = {
 
 const components = [
   {
+    name: "avatar-stack",
+    type: "registry:component",
+    dependencies: ["framer-motion"],
+    files: ["components/avatar-stack.tsx"],
+  },
+  {
     name: "waitlist-form",
     type: "registry:component",
     dependencies: ["lucide-react", "framer-motion"],
-    registryDependencies: ["button", "input", "label"],
+    registryDependencies: ["button", "input", "label", "avatar-stack"],
     files: ["components/waitlist-form.tsx"],
   },
   {
@@ -35,6 +41,13 @@ const components = [
     dependencies: ["framer-motion"],
     registryDependencies: ["button", "dialog", "waitlist-form"],
     files: ["components/waitlist-dialog.tsx"],
+  },
+  {
+    name: "stacked-testimonials",
+    type: "registry:component",
+    dependencies: ["framer-motion", "lucide-react"],
+    registryDependencies: [],
+    files: ["components/stacked-testimonials.tsx"],
   },
 ];
 

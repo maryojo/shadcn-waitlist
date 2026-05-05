@@ -1,41 +1,21 @@
 "use client";
 
 import React from "react";
-import { WaitlistForm } from "@/registry/components/waitlist-form";
-import { WaitlistDialog } from "@/registry/components/waitlist-dialog";
 import { motion } from "framer-motion";
 import { Terminal, Copy, Check, Search, Filter, LayoutGrid, List } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { components } from "./data";
 
-const components = [
-  {
-    id: "waitlist-form",
-    name: "Waitlist Form",
-    description: "A sleek, animated email capture form with built-in validation and success states.",
-    component: <WaitlistForm className="max-w-sm" onSubmitEmail={async () => { await new Promise(r => setTimeout(r, 1000)) }} />,
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-form.json"
-  },
-  {
-    id: "waitlist-dialog",
-    name: "Waitlist Dialog",
-    description: "A professional popup dialog for waitlist signup. Perfect for CTAs.",
-    component: (
-      <WaitlistDialog 
-        buttonText="Try the Dialog"
-        title="Exclusive Early Access"
-        description="Join our waitlist to receive updates and early access to new features."
-        onSubmitEmail={async () => { await new Promise(r => setTimeout(r, 1000)) }}
-      />
-    ),
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-dialog.json"
-  }
-];
 
 export default function ComponentsPage() {
   const [search, setSearch] = useState("");
   const [copied, setCopied] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const categories = ["All", ...Array.from(new Set(components.map(c => c.category)))];
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -44,8 +24,9 @@ export default function ComponentsPage() {
   };
 
   const filteredComponents = components.filter(c => 
-    c.name.toLowerCase().includes(search.toLowerCase()) || 
-    c.description.toLowerCase().includes(search.toLowerCase())
+    (selectedCategory === "All" || c.category === selectedCategory) &&
+    (c.name.toLowerCase().includes(search.toLowerCase()) || 
+    c.description.toLowerCase().includes(search.toLowerCase()))
   );
 
   return (
@@ -74,11 +55,34 @@ export default function ComponentsPage() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
+          <div className="flex-1 flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
+            {categories.map((cat) => (
+              <Button
+                key={cat}
+                variant={selectedCategory === cat ? "default" : "outline"}
+                size="sm"
+                className="rounded-full whitespace-nowrap"
+                onClick={() => setSelectedCategory(cat)}
+              >
+                {cat}
+              </Button>
+            ))}
+          </div>
           <div className="flex items-center space-x-2">
-            <Button variant="outline" size="icon" className="rounded-lg h-10 w-10">
+            <Button 
+              variant={viewMode === "grid" ? "outline" : "ghost"} 
+              size="icon" 
+              className="rounded-lg h-10 w-10"
+              onClick={() => setViewMode("grid")}
+            >
               <LayoutGrid className="w-4 h-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="rounded-lg h-10 w-10">
+            <Button 
+              variant={viewMode === "list" ? "outline" : "ghost"} 
+              size="icon" 
+              className="rounded-lg h-10 w-10"
+              onClick={() => setViewMode("list")}
+            >
               <List className="w-4 h-4" />
             </Button>
           </div>
@@ -87,14 +91,11 @@ export default function ComponentsPage() {
 
       {/* Grid */}
       <div className="container px-4 mx-auto mt-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className={viewMode === "grid" ? "columns-1 lg:columns-2 gap-12 space-y-12" : "flex flex-col gap-12"}>
           {filteredComponents.map((comp) => (
-            <motion.div 
+            <div 
               key={comp.id}
-              layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="group"
+              className="group break-inside-avoid"
             >
               <div className="relative bg-card border rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="p-8 md:p-10">
@@ -106,7 +107,7 @@ export default function ComponentsPage() {
                   </div>
 
                   {/* Preview Area */}
-                  <div className="bg-muted/40 rounded-2xl p-12 border border-dashed flex items-center justify-center min-h-[300px] mb-8">
+                  <div className="bg-white rounded-2xl p-12 border border-dashed flex items-center justify-center min-h-[300px] mb-8">
                     {comp.component}
                   </div>
 
@@ -128,7 +129,7 @@ export default function ComponentsPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
