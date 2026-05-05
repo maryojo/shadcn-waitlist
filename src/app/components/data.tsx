@@ -4,7 +4,7 @@ import { WaitlistDialog } from "@/registry/components/waitlist-dialog";
 import { AvatarStack } from "@/registry/components/avatar-stack";
 import { StackedTestimonials } from "@/registry/components/stacked-testimonials";
 import { FAQSection } from "@/registry/components/faq-section";
-import { WaitlistProgress } from "@/registry/components/waitlist-progress";
+// import { WaitlistProgress } from "@/registry/components/waitlist-progress";
 
 export type ComponentEntry = {
   id: string;
