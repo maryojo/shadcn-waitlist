@@ -30,7 +30,7 @@ export function Navbar() {
           <a href="https://github.com" target="_blank" rel="noreferrer" className="text-sm font-medium hover:text-primary transition-colors">
             <GitBranch className="w-4 h-4" />
           </a>
-          <Button size="sm" className="rounded-full px-5">
+          <Button size="sm" className="rounded-full px-5" >
             Get Started
           </Button>
         </div>

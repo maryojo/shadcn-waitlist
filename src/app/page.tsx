@@ -267,7 +267,7 @@ export default function Home() {
           </div>
           <div className="pt-12 border-t border-muted-foreground/10 flex flex-col sm:row justify-between items-center gap-6">
             <p className="text-sm text-muted-foreground font-medium">
-              &copy; {new Date().getFullYear()} Built by Antigravity.
+              &copy; {new Date().getFullYear()} Built by Mary.
             </p>
             <div className="flex items-center space-x-8">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><GitBranch className="w-5 h-5" /></a>
