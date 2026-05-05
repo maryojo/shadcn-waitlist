@@ -16,6 +16,9 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "shadcn/waitlist - Premium Waitlist Components",
   description: "Beautiful, copy-paste waitlist components for your Next.js apps. Compatible with shadcn/ui.",
+  icons: {
+    icon: "/waitlist-logo.svg",
+  },
 };
 
 export default function RootLayout({

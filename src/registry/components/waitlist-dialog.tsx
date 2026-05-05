@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { WaitlistForm } from "./waitlist-form";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export interface WaitlistDialogProps {
   buttonText?: string;
@@ -40,9 +40,18 @@ export function WaitlistDialog({
       <DialogTrigger asChild>
         <Button 
           variant={buttonVariant} 
-          className="rounded-xl px-6 h-11 font-medium transition-all duration-300 active:scale-95 bg-black"
+          className="rounded-xl px-6 h-11 font-medium transition-all duration-300 active:scale-95 bg-black text-white"
         >
-          {showIcon && <Sparkles className="mr-2 h-4 w-4" />}
+          {showIcon && (
+            <div className="mr-2 h-4 w-4 relative">
+              <Image 
+                src="/waitlist-logo-black-outline.svg" 
+                alt="Logo" 
+                fill 
+                className="object-contain"
+              />
+            </div>
+          )}
           {buttonText}
         </Button>
       </DialogTrigger>
@@ -50,8 +59,13 @@ export function WaitlistDialog({
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
         <div className="relative p-8 pt-10">
           <DialogHeader className="space-y-3 mb-6">
-            <div className="mx-auto w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-2">
-              <Sparkles className="w-6 h-6 text-primary" />
+            <div className="mx-auto w-12 h-12 relative mb-2">
+              <Image 
+                src="/waitlist-logo-black-outline.svg" 
+                alt="Logo" 
+                fill 
+                className="object-contain"
+              />
             </div>
             <DialogTitle className="text-2xl font-bold text-center tracking-tight text-slate-900">
               {title}

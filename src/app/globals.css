@@ -15,7 +15,7 @@
   --color-popover-foreground: var(--popover-foreground);
 
   --color-primary: #00b4d8;
-  --color-primary-foreground: #FFFFFF;
+  --color-primary-foreground: #000000;
 
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -62,7 +62,7 @@
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(240 10% 3.9%);
     --primary: hsl(206 100% 50%);
-    --primary-foreground: hsl(0 0% 100%);
+    --primary-foreground: hsl(0 0% 0%);
     --secondary: hsl(206 20% 96%);
     --secondary-foreground: hsl(206 100% 40%);
     --muted: hsl(206 20% 96%);
@@ -85,7 +85,7 @@
     --popover: hsl(240 10% 3.9%);
     --popover-foreground: hsl(0 0% 98%);
     --primary: hsl(206 100% 60%);
-    --primary-foreground: hsl(206 10% 5%);
+    --primary-foreground: hsl(0 0% 0%);
     --secondary: hsl(206 20% 12%);
     --secondary-foreground: hsl(206 100% 60%);
     --muted: hsl(206 20% 12%);
@@ -113,5 +113,9 @@
   }
   html {
     scroll-behavior: smooth;
+  }
+
+  .bg-primary {
+    color: black !important;
   }
 }
