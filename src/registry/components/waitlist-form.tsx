@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AvatarStack } from "./avatar-stack";
 
 export interface WaitlistFormProps
-  extends React.HTMLAttributes<HTMLFormElement> {
+  extends Omit<React.HTMLAttributes<HTMLFormElement>, "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart" | "style"> {
   onSubmitEmail?: (email: string) => Promise<void>;
   successMessage?: string;
   buttonText?: string;
@@ -99,7 +99,7 @@ export function WaitlistForm({
             </Button>
           </motion.div>
         ) : (
-          <motion.div
+          <motion.form
             key="form"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

@@ -37,24 +37,26 @@ export function WaitlistDialog({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button 
-          variant={buttonVariant} 
-          className="rounded-xl px-6 h-11 font-medium transition-all duration-300 active:scale-95 bg-black text-white"
-        >
-          {showIcon && (
-            <div className="mr-2 h-4 w-4 relative">
-              <Image 
-                src="/waitlist-logo-black-outline.svg" 
-                alt="Logo" 
-                fill 
-                className="object-contain"
-              />
-            </div>
-          )}
-          {buttonText}
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          <Button 
+            variant={buttonVariant} 
+            className="rounded-xl px-6 h-11 font-medium transition-all duration-300 active:scale-95 bg-black text-white"
+          >
+            {showIcon && (
+              <div className="mr-2 h-4 w-4 relative">
+                <Image 
+                  src="/waitlist-logo-black-outline.svg" 
+                  alt="Logo" 
+                  fill 
+                  className="object-contain"
+                />
+              </div>
+            )}
+            {buttonText}
+          </Button>
+        }
+      />
       <DialogContent className="sm:max-w-[440px] rounded-3xl p-0 overflow-hidden border-none shadow-2xl bg-white text-slate-950">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
         <div className="relative p-8 pt-10">

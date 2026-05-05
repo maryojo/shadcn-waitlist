@@ -91,11 +91,11 @@ export default function ComponentsPage() {
 
       {/* Grid */}
       <div className="container px-4 mx-auto mt-12">
-        <div className={viewMode === "grid" ? "grid grid-cols-1 lg:grid-cols-2 gap-12" : "flex flex-col gap-12"}>
+        <div className={viewMode === "grid" ? "columns-1 lg:columns-2 gap-12 space-y-12" : "flex flex-col gap-12"}>
           {filteredComponents.map((comp) => (
             <div 
               key={comp.id}
-              className="group"
+              className="group break-inside-avoid"
             >
               <div className="relative bg-card border rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="p-8 md:p-10">
