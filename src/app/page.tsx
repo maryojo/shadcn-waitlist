@@ -23,7 +23,7 @@ export default function Home() {
     setTimeout(() => setCopied(null), 2000);
   };
 
-  const installCommand = "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-form.json";
+  const installCommand = "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/waitlist-form.json";
 
   redirect("/components");
 

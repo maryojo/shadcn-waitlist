@@ -49,6 +49,13 @@ const components = [
     registryDependencies: [],
     files: ["components/stacked-testimonials.tsx"],
   },
+  {
+    name: "faq-section",
+    type: "registry:component",
+    dependencies: ["framer-motion", "lucide-react"],
+    registryDependencies: [],
+    files: ["components/faq-section.tsx"],
+  },
 ];
 
 type RegistryIndexItem = {
