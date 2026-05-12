@@ -12,6 +12,8 @@ import Link from "next/link";
 
 import { ShadcnIcon, ReactIcon, TailwindIcon, TypeScriptIcon, FramerMotionIcon, RadixUIIcon } from "@/components/brand-icons";
 
+import { redirect } from "next/navigation";
+
 export default function Home() {
   const [copied, setCopied] = useState<string | null>(null);
 
@@ -22,6 +24,8 @@ export default function Home() {
   };
 
   const installCommand = "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-form.json";
+
+  redirect("/components");
 
   return (
     <main className="min-h-screen bg-background selection:bg-primary/20 selection:text-primary">
@@ -285,3 +289,4 @@ export default function Home() {
     </main>
   );
 }
+
