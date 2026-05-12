@@ -16,6 +16,8 @@ if (!fs.existsSync(PUBLIC_R_PATH)) {
 type RegistryItem = {
   name: string;
   type: string;
+  title?: string;
+  description?: string;
   dependencies?: string[];
   registryDependencies?: string[];
   files: { path: string; content: string; type: string; target: string }[];
@@ -25,12 +27,16 @@ const components = [
   {
     name: "avatar-stack",
     type: "registry:component",
+    title: "Avatar Stack",
+    description: "A stack of user avatars with an overlap effect.",
     dependencies: ["framer-motion"],
     files: ["components/avatar-stack.tsx"],
   },
   {
     name: "waitlist-form",
-    type: "registry:component",
+    type: "registry:block",
+    title: "Waitlist Form",
+    description: "A premium waitlist signup form with validation and success states.",
     dependencies: ["lucide-react", "framer-motion"],
     registryDependencies: ["button", "input", "label", "avatar-stack"],
     files: ["components/waitlist-form.tsx"],
@@ -38,25 +44,49 @@ const components = [
   {
     name: "waitlist-dialog",
     type: "registry:component",
+    title: "Waitlist Dialog",
+    description: "A dialog-based waitlist signup component.",
     dependencies: ["framer-motion"],
     registryDependencies: ["button", "dialog", "waitlist-form"],
     files: ["components/waitlist-dialog.tsx"],
   },
   {
-    name: "stacked-testimonials",
+    name: "waitlist-progress",
     type: "registry:component",
+    title: "Waitlist Progress",
+    description: "A visual progress bar showing waitlist signups and milestones.",
+    dependencies: ["framer-motion", "lucide-react"],
+    registryDependencies: [],
+    files: ["components/waitlist-progress.tsx"],
+  },
+  {
+    name: "stacked-testimonials",
+    type: "registry:block",
+    title: "Stacked Testimonials",
+    description: "A clean, stacked layout for displaying user testimonials.",
     dependencies: ["framer-motion", "lucide-react"],
     registryDependencies: [],
     files: ["components/stacked-testimonials.tsx"],
+  },
+  {
+    name: "faq-section",
+    type: "registry:block",
+    title: "FAQ Section",
+    description: "An animated FAQ section with accordion-style interactions.",
+    dependencies: ["framer-motion", "lucide-react"],
+    registryDependencies: [],
+    files: ["components/faq-section.tsx"],
   },
 ];
 
 type RegistryIndexItem = {
   name: string;
   type: string;
+  title?: string;
+  description?: string;
   dependencies?: string[];
   registryDependencies?: string[];
-  files: string[];
+  files: { path: string; type: string }[];
 };
 
 const registryIndex: RegistryIndexItem[] = [];
@@ -65,6 +95,8 @@ for (const comp of components) {
   const item: RegistryItem = {
     name: comp.name,
     type: comp.type,
+    title: comp.title,
+    description: comp.description,
     dependencies: comp.dependencies,
     registryDependencies: comp.registryDependencies,
     files: [],
@@ -75,32 +107,44 @@ for (const comp of components) {
     try {
       const content = fs.readFileSync(filePath, "utf-8");
       item.files.push({
-        path: path.basename(file), // Provide just the basename or relative path depending on where it goes
+        path: path.basename(file),
         content,
         type: "registry:component",
-        target: `components/${path.basename(file)}`, // This is where it will be installed in user's project
+        target: `components/${path.basename(file)}`,
       });
     } catch (error) {
       console.error(`Error reading file ${filePath}:`, error);
     }
   }
 
-  // Write individual component JSON
+  // Write individual component JSON (this one has content)
   const outputPath = path.join(PUBLIC_R_PATH, `${comp.name}.json`);
   fs.writeFileSync(outputPath, JSON.stringify(item, null, 2));
   console.log(`Generated ${outputPath}`);
 
-  // Add to index
+  // Add to index (this one has NO content in files)
   registryIndex.push({
     name: comp.name,
     type: comp.type,
+    title: comp.title,
+    description: comp.description,
     dependencies: comp.dependencies,
     registryDependencies: comp.registryDependencies,
-    files: comp.files.map(f => path.basename(f)),
+    files: comp.files.map(f => ({
+      path: path.basename(f),
+      type: "registry:component",
+    })),
   });
 }
 
-// Write index JSON
+// Write index JSON with registry wrapper
+const fullRegistry = {
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shadcn-waitlist",
+  "homepage": "https://shadcn-waitlist.netlify.app",
+  "items": registryIndex,
+};
+
 const indexPath = path.join(PUBLIC_R_PATH, "index.json");
-fs.writeFileSync(indexPath, JSON.stringify(registryIndex, null, 2));
+fs.writeFileSync(indexPath, JSON.stringify(fullRegistry, null, 2));
 console.log(`Generated ${indexPath}`);

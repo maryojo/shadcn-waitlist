@@ -1,68 +1,115 @@
-[
-  {
-    "name": "avatar-stack",
-    "type": "registry:component",
-    "dependencies": [
-      "framer-motion"
-    ],
-    "files": [
-      "avatar-stack.tsx"
-    ]
-  },
-  {
-    "name": "waitlist-form",
-    "type": "registry:component",
-    "dependencies": [
-      "lucide-react",
-      "framer-motion"
-    ],
-    "registryDependencies": [
-      "button",
-      "input",
-      "label",
-      "avatar-stack"
-    ],
-    "files": [
-      "waitlist-form.tsx"
-    ]
-  },
-  {
-    "name": "waitlist-dialog",
-    "type": "registry:component",
-    "dependencies": [
-      "framer-motion"
-    ],
-    "registryDependencies": [
-      "button",
-      "dialog",
-      "waitlist-form"
-    ],
-    "files": [
-      "waitlist-dialog.tsx"
-    ]
-  },
-  {
-    "name": "stacked-testimonials",
-    "type": "registry:component",
-    "dependencies": [
-      "framer-motion",
-      "lucide-react"
-    ],
-    "registryDependencies": [],
-    "files": [
-      "stacked-testimonials.tsx"
-    ]
-  },
-  {
-    "name": "faq-section",
-    "type": "registry:component",
-    "dependencies": [
-      "framer-motion",
-      "lucide-react"
-    ],
-    "registryDependencies": [],
-    "files": [
-      "faq-section.tsx"
-    ]
-  }
-]
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shadcn-waitlist",
+  "homepage": "https://shadcn-waitlist.netlify.app",
+  "items": [
+    {
+      "name": "avatar-stack",
+      "type": "registry:component",
+      "title": "Avatar Stack",
+      "description": "A stack of user avatars with an overlap effect.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "avatar-stack.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-form",
+      "type": "registry:block",
+      "title": "Waitlist Form",
+      "description": "A premium waitlist signup form with validation and success states.",
+      "dependencies": [
+        "lucide-react",
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "avatar-stack"
+      ],
+      "files": [
+        {
+          "path": "waitlist-form.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-dialog",
+      "type": "registry:component",
+      "title": "Waitlist Dialog",
+      "description": "A dialog-based waitlist signup component.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "registryDependencies": [
+        "button",
+        "dialog",
+        "waitlist-form"
+      ],
+      "files": [
+        {
+          "path": "waitlist-dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "waitlist-progress",
+      "type": "registry:component",
+      "title": "Waitlist Progress",
+      "description": "A visual progress bar showing waitlist signups and milestones.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "waitlist-progress.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "stacked-testimonials",
+      "type": "registry:block",
+      "title": "Stacked Testimonials",
+      "description": "A clean, stacked layout for displaying user testimonials.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "stacked-testimonials.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "faq-section",
+      "type": "registry:block",
+      "title": "FAQ Section",
+      "description": "An animated FAQ section with accordion-style interactions.",
+      "dependencies": [
+        "framer-motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "faq-section.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

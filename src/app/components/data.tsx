@@ -39,7 +39,7 @@ export const components: ComponentEntry[] = [
     category: "Social Proof",
     description: "A simple, elegant avatar stack component with social proof and optional count.",
     component: <AvatarStack />,
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/avatar-stack.json"
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/avatar-stack.json"
   },
   {
     id: "waitlist-form",
@@ -47,7 +47,7 @@ export const components: ComponentEntry[] = [
     category: "Forms",
     description: "A sleek, animated email capture form with built-in validation and success states.",
     component: <WaitlistForm className="max-w-sm" onSubmitEmail={async () => { await new Promise(r => setTimeout(r, 1000)) }} />,
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-form.json"
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/waitlist-form.json"
   },
   {
     id: "waitlist-dialog",
@@ -62,7 +62,7 @@ export const components: ComponentEntry[] = [
         onSubmitEmail={async () => { await new Promise(r => setTimeout(r, 1000)) }}
       />
     ),
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-dialog.json"
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/waitlist-dialog.json"
   },
   {
     id: "stacked-testimonials",
@@ -70,7 +70,7 @@ export const components: ComponentEntry[] = [
     category: "Social Proof",
     description: "A beautiful stacked card testimonial component with Framer Motion transitions.",
     component: <StackedTestimonials />,
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/stacked-testimonials.json"
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/stacked-testimonials.json"
   },
   {
     id: "faq-section",
@@ -78,7 +78,7 @@ export const components: ComponentEntry[] = [
     category: "Content",
     description: "An animated, accordion-style FAQ component with Framer Motion.",
     component: <FAQSection />,
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/faq-section.json"
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/faq-section.json"
   },
   // {
   //   id: "waitlist-progress",
@@ -86,7 +86,7 @@ export const components: ComponentEntry[] = [
   //   category: "Progress",
   //   description: "An animated progress tracker to show signup goals and spots remaining.",
   //   component: <WaitlistProgress className="relative w-full" currentSignups={842} targetSignups={1000} />,
-  //   install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-progress.json"
+  //   install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/waitlist-progress.json"
   // },
 ];
 
@@ -95,7 +95,7 @@ export const docEntries: DocEntry[] = [
     id: "avatar-stack",
     name: "Avatar Stack",
     description: "Displays a compact stack of overlapping user avatars with an optional overflow count, perfect for showing social proof.",
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/avatar-stack.json",
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/avatar-stack.json",
     usage: `import { AvatarStack } from "@/components/avatar-stack";
 
 <AvatarStack
@@ -115,7 +115,7 @@ export const docEntries: DocEntry[] = [
     id: "waitlist-form",
     name: "Waitlist Form",
     description: "An animated email capture form with built-in loading, success, and validation states. Drop it anywhere on your page.",
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-form.json",
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/waitlist-form.json",
     usage: `import { WaitlistForm } from "@/components/waitlist-form";
 
 <WaitlistForm
@@ -134,7 +134,7 @@ export const docEntries: DocEntry[] = [
     id: "waitlist-dialog",
     name: "Waitlist Dialog",
     description: "A polished modal dialog that triggers from a button. Wraps WaitlistForm inside a shadcn Dialog for use as a CTA.",
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/waitlist-dialog.json",
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/waitlist-dialog.json",
     usage: `import { WaitlistDialog } from "@/components/waitlist-dialog";
 
 <WaitlistDialog
@@ -156,7 +156,7 @@ export const docEntries: DocEntry[] = [
     id: "stacked-testimonials",
     name: "Stacked Testimonials",
     description: "A drag-and-drop stack of testimonial cards with Framer Motion spring physics and auto-advance cycling.",
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/stacked-testimonials.json",
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/stacked-testimonials.json",
     usage: `import { StackedTestimonials } from "@/components/stacked-testimonials";
 
 <StackedTestimonials
@@ -179,7 +179,7 @@ export const docEntries: DocEntry[] = [
     id: "faq-section",
     name: "FAQ Section",
     description: "An animated accordion FAQ list powered by Framer Motion. Each item expands smoothly with a spring transition.",
-    install: "npx shadcn@latest add https://shadcn-waitlist.vercel.app/r/faq-section.json",
+    install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/faq-section.json",
     usage: `import { FAQSection } from "@/components/faq-section";
 
 <FAQSection
@@ -195,4 +195,23 @@ export const docEntries: DocEntry[] = [
       { name: "className", type: "string", description: "Additional CSS classes.", default: "undefined" },
     ],
   },
+  // {
+  //   id: "waitlist-progress",
+  //   name: "Waitlist Progress",
+  //   description: "A visual progress bar showing waitlist signups and milestones. Highly customizable with spring animations.",
+  //   install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/waitlist-progress.json",
+  //   usage: `import { WaitlistProgress } from "@/components/waitlist-progress";
+  // 
+  // <WaitlistProgress
+  //   currentSignups={842}
+  //   targetSignups={1000}
+  //   milestones={[250, 500, 750]}
+  // />`,
+  //   props: [
+  //     { name: "currentSignups", type: "number", description: "The current number of people who have joined.", default: "842" },
+  //     { name: "targetSignups", type: "number", description: "The goal number of signups.", default: "1000" },
+  //     { name: "milestones", type: "number[]", description: "Array of signup counts to show as markers.", default: "[250, 500, 750]" },
+  //     { name: "className", type: "string", description: "Additional CSS classes.", default: "undefined" },
+  //   ],
+  // },
 ];

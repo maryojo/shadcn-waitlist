@@ -13,7 +13,7 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2 group">
+        <Link href="/components" className="flex items-center space-x-2 group">
           <div className="relative w-8 h-8 flex items-center justify-center">
             <Image 
               src="/waitlist-logo.svg" 
@@ -29,7 +29,7 @@ export function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-y-0 space-x-8">
           <Link href="/components" className="text-sm font-medium hover:text-primary transition-colors">
-            Components
+            Components & Blocks
           </Link>
           <Link href="/docs" className="text-sm font-medium hover:text-primary transition-colors">
             Documentation
@@ -59,7 +59,7 @@ export function Navbar() {
           >
             <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
               <Link href="/components" onClick={() => setIsOpen(false)} className="text-lg font-medium">
-                Components
+                Components & Blocks
               </Link>
               <Link href="/docs" onClick={() => setIsOpen(false)} className="text-lg font-medium">
                 Documentation
