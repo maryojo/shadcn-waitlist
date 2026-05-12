@@ -1,6 +1,8 @@
 {
   "name": "avatar-stack",
   "type": "registry:component",
+  "title": "Avatar Stack",
+  "description": "A stack of user avatars with an overlap effect.",
   "dependencies": [
     "framer-motion"
   ],

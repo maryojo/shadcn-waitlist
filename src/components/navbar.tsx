@@ -29,7 +29,7 @@ export function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-y-0 space-x-8">
           <Link href="/components" className="text-sm font-medium hover:text-primary transition-colors">
-            Components
+            Components & Blocks
           </Link>
           <Link href="/docs" className="text-sm font-medium hover:text-primary transition-colors">
             Documentation
@@ -59,7 +59,7 @@ export function Navbar() {
           >
             <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
               <Link href="/components" onClick={() => setIsOpen(false)} className="text-lg font-medium">
-                Components
+                Components & Blocks
               </Link>
               <Link href="/docs" onClick={() => setIsOpen(false)} className="text-lg font-medium">
                 Documentation

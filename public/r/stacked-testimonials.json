@@ -1,6 +1,8 @@
 {
   "name": "stacked-testimonials",
-  "type": "registry:component",
+  "type": "registry:block",
+  "title": "Stacked Testimonials",
+  "description": "A clean, stacked layout for displaying user testimonials.",
   "dependencies": [
     "framer-motion",
     "lucide-react"

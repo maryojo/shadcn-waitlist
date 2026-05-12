@@ -1,6 +1,8 @@
 {
   "name": "faq-section",
-  "type": "registry:component",
+  "type": "registry:block",
+  "title": "FAQ Section",
+  "description": "An animated FAQ section with accordion-style interactions.",
   "dependencies": [
     "framer-motion",
     "lucide-react"

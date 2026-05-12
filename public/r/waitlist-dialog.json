@@ -1,6 +1,8 @@
 {
   "name": "waitlist-dialog",
   "type": "registry:component",
+  "title": "Waitlist Dialog",
+  "description": "A dialog-based waitlist signup component.",
   "dependencies": [
     "framer-motion"
   ],

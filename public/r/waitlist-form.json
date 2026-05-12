@@ -1,6 +1,8 @@
 {
   "name": "waitlist-form",
-  "type": "registry:component",
+  "type": "registry:block",
+  "title": "Waitlist Form",
+  "description": "A premium waitlist signup form with validation and success states.",
   "dependencies": [
     "lucide-react",
     "framer-motion"

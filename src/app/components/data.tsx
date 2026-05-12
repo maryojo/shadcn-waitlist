@@ -195,4 +195,23 @@ export const docEntries: DocEntry[] = [
       { name: "className", type: "string", description: "Additional CSS classes.", default: "undefined" },
     ],
   },
+  // {
+  //   id: "waitlist-progress",
+  //   name: "Waitlist Progress",
+  //   description: "A visual progress bar showing waitlist signups and milestones. Highly customizable with spring animations.",
+  //   install: "npx shadcn@latest add https://shadcn-waitlist.netlify.app/r/waitlist-progress.json",
+  //   usage: `import { WaitlistProgress } from "@/components/waitlist-progress";
+  // 
+  // <WaitlistProgress
+  //   currentSignups={842}
+  //   targetSignups={1000}
+  //   milestones={[250, 500, 750]}
+  // />`,
+  //   props: [
+  //     { name: "currentSignups", type: "number", description: "The current number of people who have joined.", default: "842" },
+  //     { name: "targetSignups", type: "number", description: "The goal number of signups.", default: "1000" },
+  //     { name: "milestones", type: "number[]", description: "Array of signup counts to show as markers.", default: "[250, 500, 750]" },
+  //     { name: "className", type: "string", description: "Additional CSS classes.", default: "undefined" },
+  //   ],
+  // },
 ];

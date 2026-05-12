@@ -35,9 +35,9 @@ export default function ComponentsPage() {
       <div className="bg-muted/30 border-b py-16 lg:py-24">
         <div className="container px-4 mx-auto">
           <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight mb-4">Components</h1>
+            <h1 className="text-4xl font-bold tracking-tight mb-4">Components and Blocks</h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Explore our collection of premium waitlist components. Copy the installation command to add them to your project.
+              Explore our collection of premium waitlist components and blocks. Copy the installation command to add them to your project.
             </p>
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function ComponentsPage() {
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input 
-              placeholder="Search components..." 
+              placeholder="Search components and blocks..." 
               className="pl-10 h-10 rounded-full bg-muted/50 border-none focus-visible:ring-1"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -135,7 +135,7 @@ export default function ComponentsPage() {
 
         {filteredComponents.length === 0 && (
           <div className="py-24 text-center">
-            <p className="text-lg text-muted-foreground">No components found matching "{search}"</p>
+            <p className="text-lg text-muted-foreground">No components or blocks found matching "{search}"</p>
             <Button variant="link" onClick={() => setSearch("")} className="mt-2">Clear search</Button>
           </div>
         )}
