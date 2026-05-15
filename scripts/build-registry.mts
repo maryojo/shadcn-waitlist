@@ -140,8 +140,8 @@ for (const comp of components) {
 // Write index JSON with registry wrapper
 const fullRegistry = {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "shadcn-waitlist",
-  "homepage": "https://shadcn-waitlist.netlify.app",
+  "name": "@shadcn-waitlist",
+  "homepage": "https://shadcn-waitlist.maryojo.me",
   "items": registryIndex,
 };
 

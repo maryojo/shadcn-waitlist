@@ -60,7 +60,7 @@ export function WaitlistDialog({
       <DialogContent className="sm:max-w-[440px] rounded-3xl p-0 overflow-hidden border-none shadow-2xl bg-white text-slate-950">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
         <div className="relative p-8 pt-10">
-          <DialogHeader className="space-y-3 mb-6">
+          <DialogHeader className="space-y-1 md:space-y-3 mb-6">
             <div className="mx-auto w-12 h-12 relative mb-2">
               <Image 
                 src="/waitlist-logo-black-outline.svg" 

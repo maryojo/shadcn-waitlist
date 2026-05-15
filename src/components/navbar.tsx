@@ -34,7 +34,7 @@ export function Navbar() {
           <Link href="/docs" className="text-sm font-medium hover:text-primary transition-colors">
             Documentation
           </Link>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="text-sm font-medium hover:text-primary transition-colors">
+          <a href="https://github.com/maryojo/shadcn-waitlist" target="_blank" rel="noreferrer" className="text-sm font-medium hover:text-primary transition-colors">
             <GitBranch className="w-4 h-4" />
           </a>
           <Button size="sm" className="rounded-full px-5" >
@@ -64,7 +64,7 @@ export function Navbar() {
               <Link href="/docs" onClick={() => setIsOpen(false)} className="text-lg font-medium">
                 Documentation
               </Link>
-              <a href="https://github.com" className="text-lg font-medium">
+              <a href="https://github.com/maryojo/shadcn-waitlist" className="text-lg font-medium">
                 GitHub
               </a>
               <Button className="w-full rounded-xl">

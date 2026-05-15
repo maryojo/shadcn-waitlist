@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "shadcn-waitlist",
-  "homepage": "https://shadcn-waitlist.netlify.app",
+  "name": "@shadcn-waitlist",
+  "homepage": "https://shadcn-waitlist.maryojo.me",
   "items": [
     {
       "name": "avatar-stack",
