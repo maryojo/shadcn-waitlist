@@ -77,7 +77,7 @@ export function StackedTestimonials({
         </h3>
       </div>
 
-      <div className="relative bg-[#F4F4F6] rounded-3xl p-6 sm:p-10 min-h-[460px] flex items-center justify-center overflow-hidden">
+      <div className="relative bg-[#F4F4F6] rounded-3xl p-6 sm:p-10 min-h-[380px] sm:min-h-[460px] flex items-center justify-center overflow-hidden">
         {/* Navigation Arrows */}
         <div className="absolute top-4 left-8 z-20">
           <button
@@ -99,7 +99,7 @@ export function StackedTestimonials({
         </div>
 
         {/* Stacked Cards Container */}
-        <div className="relative w-full max-w-[480px] h-[320px]">
+        <div className="relative w-full md:max-w-[480px] h-[260px] sm:h-[320px]">
           <AnimatePresence mode="popLayout">
             {getVisibleCards().map(({ item, offset }) => {
               const isTop = offset === 0;
@@ -117,8 +117,8 @@ export function StackedTestimonials({
                   animate={{
                     opacity: 1,
                     scale: 1,
-                    y: offset * 8,
-                    rotateZ: offset === 0 ? 0 : offset === 1 ? -4 : 4,
+                    y: offset * 6,
+                    rotateZ: offset === 0 ? 0 : offset === 1 ? -3 : 3,
                     zIndex: 10 - offset,
                   }}
                   exit={{
@@ -131,10 +131,10 @@ export function StackedTestimonials({
                     duration: 0.4,
                     ease: "easeInOut",
                   }}
-                  className="absolute inset-0 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 px-8 pt-8 pb-10 flex flex-col justify-between"
+                  className="absolute inset-0 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 px-5 pt-5 pb-6 sm:px-8 sm:pt-8 sm:pb-10 flex flex-col justify-between"
                 >
-                  <div className="mb-6">
-                    <p className="text-gray-700 text-lg leading-relaxed font-medium">
+                  <div className="mb-4 sm:mb-6">
+                    <p className="text-gray-700 text-sm sm:text-lg leading-relaxed font-medium line-clamp-5 sm:line-clamp-none">
                       "{item.content}"
                     </p>
                   </div>

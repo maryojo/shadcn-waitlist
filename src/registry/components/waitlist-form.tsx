@@ -109,7 +109,7 @@ export function WaitlistForm({
             noValidate
             {...props}
           >
-            <div className="flex items-center gap-3 px-1 mb-2">
+            <div className="flex flex-col md:flex-row items-center gap-3 px-1 mb-2">
               <AvatarStack />
               <p className="text-[11px] text-muted-foreground font-medium">
                 Join <span className="text-black font-bold">2,431+</span> people already on the list

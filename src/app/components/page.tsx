@@ -45,7 +45,7 @@ export default function ComponentsPage() {
 
       {/* Toolbar */}
       <div className="sticky top-16 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-        <div className="container px-4 mx-auto h-16 flex items-center justify-between gap-4">
+        <div className="container px-4 py-5 md:py-0 md:mx-auto h-fit md:h-16 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input 
@@ -55,7 +55,7 @@ export default function ComponentsPage() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div className="flex-1 flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
+          <div className="flex-1 flex items-center gap-2 overflow-x-auto md:pb-2 scrollbar-hide">
             {categories.map((cat) => (
               <Button
                 key={cat}
@@ -68,7 +68,7 @@ export default function ComponentsPage() {
               </Button>
             ))}
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-2">
             <Button 
               variant={viewMode === "grid" ? "outline" : "ghost"} 
               size="icon" 
@@ -107,7 +107,7 @@ export default function ComponentsPage() {
                   </div>
 
                   {/* Preview Area */}
-                  <div className="bg-white rounded-2xl p-12 border border-dashed flex items-center justify-center min-h-[300px] mb-8">
+                  <div className="bg-white rounded-2xl px-4 md:p-12 border border-dashed flex items-center justify-center min-h-[250px] md:min-h-[300px] mb-8">
                     {comp.component}
                   </div>
 
