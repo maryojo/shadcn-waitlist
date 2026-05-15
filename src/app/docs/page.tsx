@@ -5,6 +5,8 @@ import { docEntries, type DocEntry } from "@/app/components/data";
 import { motion, AnimatePresence } from "framer-motion";
 import { Copy, Check, Terminal, ChevronRight, BookOpen, Puzzle, Package } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Footer } from "@/components/footer";
+
 
 function CopyButton({ text, className }: { text: string; className?: string }) {
   const [copied, setCopied] = useState(false);
@@ -235,6 +237,8 @@ export default function DocsPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
+

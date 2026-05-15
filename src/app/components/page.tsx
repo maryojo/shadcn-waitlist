@@ -7,6 +7,8 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { components } from "./data";
+import { Footer } from "@/components/footer";
+
 
 
 export default function ComponentsPage() {
@@ -140,6 +142,8 @@ export default function ComponentsPage() {
           </div>
         )}
       </div>
+      <Footer />
     </main>
   );
 }
+

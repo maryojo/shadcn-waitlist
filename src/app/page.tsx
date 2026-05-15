@@ -11,6 +11,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { ShadcnIcon, ReactIcon, TailwindIcon, TypeScriptIcon, FramerMotionIcon, RadixUIIcon } from "@/components/brand-icons";
+import { Footer } from "@/components/footer";
 
 import { redirect } from "next/navigation";
 
@@ -229,64 +230,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-24 border-t bg-muted/10">
-        <div className="container px-4 mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
-            <div className="max-w-xs">
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="relative w-10 h-10 flex items-center justify-center">
-                  <Image 
-                    src="/waitlist-logo.svg" 
-                    alt="Waitlist Logo" 
-                    width={40} 
-                    height={40} 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <span className="font-heading font-bold text-xl md:text-2xl tracking-tighter">shadcn/waitlist</span>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Crafting the web's most beautiful waitlist components. Built for performance and conversion.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 md:gap-24">
-              <div>
-                <h4 className="font-bold mb-6 uppercase text-xs tracking-widest">Product</h4>
-                <ul className="space-y-4 text-muted-foreground font-medium">
-                  <li><Link href="/components" className="hover:text-primary transition-colors">Components</Link></li>
-                  <li><Link href="/docs" className="hover:text-primary transition-colors">Documentation</Link></li>
-                  <li><Link href="/changelog" className="hover:text-primary transition-colors">Changelog</Link></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold mb-6 uppercase text-xs tracking-widest">Community</h4>
-                <ul className="space-y-4 text-muted-foreground font-medium">
-                  <li><a href="#" className="hover:text-primary transition-colors">GitHub</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">Discord</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">Twitter</a></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold mb-6 uppercase text-xs tracking-widest">Legal</h4>
-                <ul className="space-y-4 text-muted-foreground font-medium">
-                  <li><a href="#" className="hover:text-primary transition-colors">Privacy</a></li>
-                  <li><a href="#" className="hover:text-primary transition-colors">Terms</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="pt-12 border-t border-muted-foreground/10 flex flex-col sm:row justify-between items-center gap-6">
-            <p className="text-sm text-muted-foreground font-medium">
-              &copy; {new Date().getFullYear()} Built by Mary.
-            </p>
-            <div className="flex items-center space-x-8">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><GitBranch className="w-5 h-5" /></a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
-
